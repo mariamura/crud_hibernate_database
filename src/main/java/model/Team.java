@@ -33,6 +33,9 @@ public class Team {
         this.name = name;
     }
 
+    public Team() {
+
+    }
 
     public Long getId() {
         return id;

@@ -22,7 +22,6 @@ public class Developer {
         this.lastName = lastName;
     }
     public Developer(String firstName, String lastName) {
-        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
