@@ -1,8 +1,7 @@
 package controller;
 
 import model.Team;
-import repository.TeamRepository;
-import repository.jdbcImpl.TeamRepositoryImpl;
+import repository.Impl.TeamRepositoryImpl;
 
 import java.util.List;
 

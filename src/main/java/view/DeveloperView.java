@@ -1,13 +1,12 @@
 package view;
 
-import DButils.DBUtil;
 import controller.DeveloperController;
 import controller.SkillController;
 import model.ConsoleMessage;
 import model.Developer;
 import model.Skill;
-import repository.jdbcImpl.DeveloperRepositoryImpl;
-import repository.jdbcImpl.SkillRepositoryImpl;
+import repository.Impl.DeveloperRepositoryImpl;
+import repository.Impl.SkillRepositoryImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,7 +67,6 @@ public class DeveloperView {
                     ConsoleStarter.start();
                 case "7":
                     exit = true;
-                    DBUtil.closeConnection();
                     break;
             }
         } while (!exit);

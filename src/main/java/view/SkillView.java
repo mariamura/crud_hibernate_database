@@ -1,10 +1,10 @@
 package view;
 
-import DButils.DBUtil;
+
 import controller.SkillController;
 import model.ConsoleMessage;
 import model.Skill;
-import repository.jdbcImpl.SkillRepositoryImpl;
+import repository.Impl.SkillRepositoryImpl;
 
 import java.util.List;
 import java.util.Scanner;
@@ -61,7 +61,6 @@ public class SkillView {
                     ConsoleStarter.start();
                 case "7":
                     exit = true;
-                    DBUtil.closeConnection();
                     break;
             }
         } while (!exit);

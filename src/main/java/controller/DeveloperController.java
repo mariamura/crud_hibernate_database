@@ -2,7 +2,7 @@ package controller;
 
 import model.Developer;
 import repository.DeveloperRepository;
-import repository.jdbcImpl.DeveloperRepositoryImpl;
+import repository.Impl.DeveloperRepositoryImpl;
 
 import java.util.List;
 

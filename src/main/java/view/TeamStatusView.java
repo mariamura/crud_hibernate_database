@@ -1,10 +1,9 @@
 package view;
 
-import DButils.DBUtil;
 import controller.TeamController;
 import model.ConsoleMessage;
 import model.TeamStatus;
-import repository.jdbcImpl.TeamRepositoryImpl;
+import repository.Impl.TeamRepositoryImpl;
 
 import java.util.Scanner;
 
@@ -41,7 +40,6 @@ public class TeamStatusView {
                 }
                 case "4" -> {
                     exit = true;
-                    DBUtil.closeConnection();
                 }
             }
         } while (!exit);

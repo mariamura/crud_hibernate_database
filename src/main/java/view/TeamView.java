@@ -1,14 +1,13 @@
 package view;
 
-import DButils.DBUtil;
 import controller.DeveloperController;
 import controller.TeamController;
 import model.ConsoleMessage;
 import model.Developer;
 import model.Team;
 import model.TeamStatus;
-import repository.jdbcImpl.DeveloperRepositoryImpl;
-import repository.jdbcImpl.TeamRepositoryImpl;
+import repository.Impl.DeveloperRepositoryImpl;
+import repository.Impl.TeamRepositoryImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,7 +75,6 @@ public class TeamView {
                     ConsoleStarter.start();
                 case "7":
                     exit = true;
-                    DBUtil.closeConnection();
                     break;
             }
         } while (!exit);

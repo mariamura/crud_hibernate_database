@@ -1,6 +1,5 @@
 package view;
 
-import DButils.DBUtil;
 
 import java.util.Scanner;
 
@@ -40,7 +39,6 @@ public class ConsoleStarter {
                     break;
                 case "5":
                     exit = true;
-                    DBUtil.closeConnection();
                     break;
             }
         } while (!exit);

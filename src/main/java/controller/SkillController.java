@@ -1,17 +1,19 @@
 package controller;
 
 import model.Skill;
-import repository.jdbcImpl.SkillRepositoryImpl;
+import repository.SkillRepository;
+import repository.Impl.SkillRepositoryImpl;
 
 import java.util.List;
 
 public class SkillController {
 
-    SkillRepositoryImpl skillRepository;
+    SkillRepository skillRepository;
 
     public SkillController(SkillRepositoryImpl skillRepository) {
         this.skillRepository = skillRepository;
     }
+
 
     public List<Skill> getAll(){
         return skillRepository.getAll();

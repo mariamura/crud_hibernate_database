@@ -8,12 +8,12 @@
             org.hibernate.dialect.MySQLDialect
         </property>
         <property name="hibernate.connection.driver_class">
-            com.mysql.jdbc.Driver
+            com.mysql.cj.jdbc.Driver
         </property>
 
         <!-- Assume test is the database name -->
         <property name="hibernate.connection.url">
-            jdbc:mysql://localhost/crud_database
+            jdbc:mysql://localhost/crud_database?serverTimezone=Europe/Moscow
         </property>
         <property name="hibernate.connection.username">
             maria
@@ -21,6 +21,8 @@
         <property name="hibernate.connection.password">
             123
         </property>
+
+        <mapping resource="Skill.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>
