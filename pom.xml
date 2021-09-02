@@ -12,7 +12,6 @@
         <junit.version>4.13.1</junit.version>
         <mysql.version>8.0.22</mysql.version>
         <mockito-core.version>3.6.0</mockito-core.version>
-        <liquibase-maven-plugin.version>3.8.0</liquibase-maven-plugin.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
     </properties>
@@ -52,13 +51,20 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.liquibase</groupId>
-                <artifactId>liquibase-maven-plugin</artifactId>
-                <version>${liquibase-maven-plugin.version}</version>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>4.0.3</version>
                 <configuration>
-                    <propertyFile>src/main/resources/liquibase.properties</propertyFile>
                     <driver>com.mysql.jdbc.Driver</driver>
-                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+                    <user>maria</user>
+                    <password>123</password>
+                    <schemas>
+                        <schema>team</schema>
+                        <schema>developer</schema>
+                        <schema>skill</schema>
+                        <schema>skill_developer</schema>
+                        <url>jdbc:mysql://localhost:3306</url>
+                    </schemas>
                 </configuration>
             </plugin>
         </plugins>
@@ -81,11 +87,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-maven-plugin</artifactId>
-            <version>${liquibase-maven-plugin.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
