@@ -1,7 +1,6 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 
@@ -9,7 +8,9 @@ import java.util.Objects;
 @Table(name = "skill")
 public class Skill {
 
+
     private Long id;
+    @Column(name = "skillName")
     private String name;
 
     public Skill(Long id, String name) {
@@ -21,6 +22,9 @@ public class Skill {
 
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", unique = true, nullable = false)
     public Long getId(){
         return id;
     }

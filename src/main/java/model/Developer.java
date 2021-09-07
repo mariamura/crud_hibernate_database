@@ -1,7 +1,6 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,9 +9,17 @@ import java.util.Objects;
 @Table(name = "developer")
 public class Developer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idDeveloper", unique = true, nullable = false)
     private Long id;
+
+    @Column(name = "developerFirstName")
     private String firstName;
+
+    @Column(name = "developerLastName")
     private String lastName;
+
     private List<Skill> skills;
 
     public Developer(Long id, String firstName, String lastName, List<Skill> skills) {
@@ -59,6 +66,7 @@ public class Developer {
         this.lastName = lastName;
     }
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "developer", cascade = CascadeType.ALL)
     public List<Skill> getSkills() {
         return skills;
     }

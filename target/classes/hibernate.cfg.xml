@@ -23,6 +23,7 @@
         </property>
 
         <mapping resource="Skill.hbm.xml"/>
+        <mapping resource="Developer.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

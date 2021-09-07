@@ -7,6 +7,10 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import repository.SkillRepository;
 
+import javax.management.Query;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 public class SkillRepositoryImpl implements SkillRepository {
@@ -20,9 +24,7 @@ public class SkillRepositoryImpl implements SkillRepository {
     @Override
     public Skill save(Skill skill) {
         Session session = sessionFactory.openSession();
-        Transaction transaction = null;
-
-        transaction = session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
         session.save(skill);
         transaction.commit();
         session.close();
@@ -31,6 +33,15 @@ public class SkillRepositoryImpl implements SkillRepository {
 
     @Override
     public Skill getById(Long id) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+
+        transaction = session.beginTransaction();
+        Query query = (Query) session.createQuery("FROM Skill s where s.id=" + id);
+
+
+        transaction.commit();
+        session.close();
         return null;
     }
 
