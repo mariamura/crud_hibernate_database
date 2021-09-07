@@ -6,4 +6,5 @@ How to use:
 
 1. Clone or Download repository
 2. Run `mvn clean flyway:migrate -Dflyway.configFile=myFlywayConfig.properties`
-3. Run ``
+3. Run `mvn install`
+5. Run `mvn exec:java -Dexec.mainClass="StartProgram"`
