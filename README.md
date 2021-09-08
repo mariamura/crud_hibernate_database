@@ -1,6 +1,7 @@
 # crud_database_jdbc
 
-CRUD Console application with JDBC implementation
+CRUD Console application.
+Java, MySQl, Hibernate, Flyway, Maven.
 
 How to use:
 
