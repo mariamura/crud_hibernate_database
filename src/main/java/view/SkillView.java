@@ -106,6 +106,8 @@ public class SkillView {
                     String newName = sc.next();
                     skill.setName(newName);
                     skillController.update(skill);
+                    System.out.println(ConsoleMessage.UPDATED.getMessage() + skill.getId());
+                    startSkill();
                 }
                 case "2" -> startSkill();
                 default -> throw new Exception(ConsoleMessage.ERROR.getMessage());

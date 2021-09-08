@@ -7,7 +7,7 @@
         <meta attribute="class-description">
             This class contains developer's details.
         </meta>
-        <id name="id" type="int" column="idTeam">
+        <id name="id" type="long" column="idDeveloper">
             <generator class="native"/>
         </id>
         <property name="firstName" column="developerFirstName" type="string"/>

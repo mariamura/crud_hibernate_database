@@ -34,30 +34,28 @@ public class SkillRepositoryImpl implements SkillRepository {
     @Override
     public Skill getById(Long id) {
         Session session = sessionFactory.openSession();
-        Transaction transaction = null;
-
-        transaction = session.beginTransaction();
-        Query query = (Query) session.createQuery("FROM Skill s where s.id=" + id);
-
-
+        Transaction transaction = session.beginTransaction();
+        Skill skill = session.get(Skill.class, id);
         transaction.commit();
         session.close();
-        return null;
+        return skill;
     }
 
     @Override
     public void deleteById(Long id) {
-
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Skill skill = session.get(Skill.class, id);
+        session.delete(skill);
+        transaction.commit();
+        session.close();
     }
 
     @Override
     public List<Skill> getAll() {
         Session session = sessionFactory.openSession();
-        Transaction transaction = null;
-
-        transaction = session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
         List<Skill> skills = session.createQuery("FROM Skill").list();
-
         transaction.commit();
         session.close();
         return skills;
@@ -65,6 +63,14 @@ public class SkillRepositoryImpl implements SkillRepository {
 
     @Override
     public Skill update(Skill skill) {
-        return null;
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        Skill skill1 = session.get(Skill.class, skill.getId());
+        skill1.setName(skill.getName());
+        session.update(skill1);
+        transaction.commit();
+        session.close();
+        return skill1;
     }
 }

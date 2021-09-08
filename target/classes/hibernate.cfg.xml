@@ -24,6 +24,7 @@
 
         <mapping resource="Skill.hbm.xml"/>
         <mapping resource="Developer.hbm.xml"/>
+        <mapping resource="Team.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

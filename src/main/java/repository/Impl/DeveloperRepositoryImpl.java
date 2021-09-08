@@ -20,9 +20,7 @@ public class DeveloperRepositoryImpl implements DeveloperRepository {
     @Override
     public Developer save(Developer developer) {
         Session session = sessionFactory.openSession();
-        Transaction transaction = null;
-
-        transaction = session.beginTransaction();
+        Transaction transaction = session.beginTransaction();
         session.save(developer);
         transaction.commit();
         session.close();
