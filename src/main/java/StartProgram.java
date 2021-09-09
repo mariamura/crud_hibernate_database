@@ -8,11 +8,11 @@ import java.sql.SQLException;
 
 public class StartProgram {
 	public static void main(String[] args) throws Exception {
-		//ConsoleStarter.start();
+		ConsoleStarter.start();
 
 	}
 	//manual creation skill  table
-	public void getConnection() {
+	/*public void getConnection() {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost/crud_database_pg", "maria", "123");
@@ -25,5 +25,5 @@ public class StartProgram {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-	}
+	}*/
 }

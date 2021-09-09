@@ -8,9 +8,7 @@ import java.util.Objects;
 @Table(name = "skill", schema = "crud_database_pg")
 public class Skill {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+
     private Long id;
 
     @Column(name = "skillName")
@@ -25,6 +23,8 @@ public class Skill {
 
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId(){
         return id;
     }

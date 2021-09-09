@@ -1,0 +1,34 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.PostgreSQLDialect
+            <!-- org.hibernate.dialect.MySQLDialect -->
+        </property>
+        <property name="hibernate.connection.driver_class">
+            org.postgresql.Driver
+            <!-- com.mysql.cj.jdbc.Driver -->
+        </property>
+
+        <!-- Assume test is the database name -->
+        <property name="hibernate.connection.url">
+            jdbc:postgresql://localhost/crud_database_pg
+            <!-- jdbc:mysql://localhost/crud_database?serverTimezone=Europe/Moscow -->
+        </property>
+        <property name="hibernate.connection.username">
+            maria
+        </property>
+        <property name="hibernate.connection.password">
+            123
+        </property>
+
+        <mapping resource="Skill.hbm.xml"/>
+        <mapping resource="Developer.hbm.xml"/>
+        <mapping resource="Team.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>
+
