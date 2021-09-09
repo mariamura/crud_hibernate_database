@@ -10,11 +10,12 @@
 
     <properties>
         <junit.version>4.13.1</junit.version>
-        <mysql.version>8.0.22</mysql.version>
         <mockito-core.version>3.6.0</mockito-core.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
+
     </properties>
+
 
     <build>
         <plugins>
@@ -55,12 +56,12 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>4.0.3</version>
                 <configuration>
-                    <driver>com.mysql.jdbc.Driver</driver>
+                    <driver>org.postgresql.Driver</driver>
                     <user>maria</user>
                     <password>123</password>
                     <schemas>
-                        <schema>crud_database</schema>
-                        <url>jdbc:mysql://localhost:3306</url>
+                        <schema>crud_database_pg</schema>
+                        <url>jdbc:postgresql://localhost/crud_database_pg</url>
                     </schemas>
                 </configuration>
             </plugin>
@@ -68,11 +69,6 @@
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
@@ -113,6 +109,13 @@
             <artifactId>hibernate-core</artifactId>
             <version>5.4.32.Final</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.23</version>
+        </dependency>
+
     </dependencies>
 
 </project>

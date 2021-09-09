@@ -1,6 +1,5 @@
-create table if not exists `team` (
-    `id` 	            BIGINT(10) NOT NULL AUTO_INCREMENT,
-    `teamName`    	    	varchar(20),
-    `status`              	varchar(10),
-    primary key (id)
+create table if not exists team (
+    id	            		SERIAL PRIMARY KEY,
+    teamName    	    	varchar(20) not null,
+    status              	varchar(10) not null
 );

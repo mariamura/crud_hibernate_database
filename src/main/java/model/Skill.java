@@ -5,11 +5,14 @@ import java.util.Objects;
 
 
 @Entity
-@Table(name = "skill")
+@Table(name = "skill", schema = "crud_database_pg")
 public class Skill {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
     @Column(name = "skillName")
     private String name;
 
@@ -22,9 +25,6 @@ public class Skill {
 
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", unique = true, nullable = false)
     public Long getId(){
         return id;
     }
