@@ -4,11 +4,12 @@ import javax.persistence.*;
 import java.util.Objects;
 
 
-@Entity
-@Table(name = "skill", schema = "crud_database_pg")
+@Entity(name = "Skill")
+@Table(name = "skill")
 public class Skill {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "skillName")
@@ -23,8 +24,6 @@ public class Skill {
 
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId(){
         return id;
     }

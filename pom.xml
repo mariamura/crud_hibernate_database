@@ -55,15 +55,6 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>4.0.3</version>
-                <configuration>
-                    <driver>org.postgresql.Driver</driver>
-                    <user>maria</user>
-                    <password>123</password>
-                    <schemas>
-                        <schema>crud_database_pg</schema>
-                        <url>jdbc:postgresql://localhost/crud_database_pg</url>
-                    </schemas>
-                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -19,15 +19,22 @@
             <!-- jdbc:mysql://localhost/crud_database?serverTimezone=Europe/Moscow -->
         </property>
         <property name="hibernate.connection.username">
-            maria
+            postgres
         </property>
         <property name="hibernate.connection.password">
             123
         </property>
 
-        <mapping resource="Skill.hbm.xml"/>
+        <!--<property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="use_sql_comments">true</property>-->
+
+        <mapping class="model.Skill"/>
+        <mapping class="model.Developer"/>
+
+        <!-- <mapping resource="Skill.hbm.xml"/>
         <mapping resource="Developer.hbm.xml"/>
-        <mapping resource="Team.hbm.xml"/>
+        <mapping resource="Team.hbm.xml"/> -->
 
     </session-factory>
 </hibernate-configuration>

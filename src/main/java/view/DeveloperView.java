@@ -83,19 +83,23 @@ public class DeveloperView {
             Long skillId;
             do {
                 System.out.println(ConsoleMessage.ADD_SKILLS.getMessage());
-                if(sc.nextLine().equals("n")) {
+                String answer1 = sc.nextLine();
+                if(answer1.equals("y")) {
+                    skillController.printAll();
+                    skillId = sc.nextLong();
+                    Long finalSkillId = skillId;
+                    if(newSkills.stream().anyMatch(n->n.getId().equals(finalSkillId))) {
+                        System.out.println(ConsoleMessage.DEV_WARNING.getMessage());
+                    }
+                    else {
+                        newSkills.add(skillController.getById(finalSkillId));
+                    }
+
+                } else {
                     exit = true;
                     break;
                 }
-                skillController.printAll();
-                skillId = sc.nextLong();
-                Long finalSkillId = skillId;
-                if(newSkills.stream().anyMatch(n->n.getId().equals(finalSkillId))) {
-                    System.out.println(ConsoleMessage.DEV_WARNING.getMessage());
-                }
-                else {
-                    newSkills.add(skillController.getById(finalSkillId));
-                }
+
                 System.out.println(ConsoleMessage.ADD_SKILLS.getMessage());
                 String answer = sc.next();
                 if(answer.equals("y")) {

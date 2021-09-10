@@ -5,13 +5,12 @@ import java.util.List;
 import java.util.Objects;
 
 
-@Entity
+@Entity(name = "Developer")
 @Table(name = "developer")
 public class Developer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idDeveloper", unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "developerFirstName")
@@ -20,6 +19,7 @@ public class Developer {
     @Column(name = "developerLastName")
     private String lastName;
 
+    @OneToMany(mappedBy = "developer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Skill> skills;
 
     public Developer(Long id, String firstName, String lastName, List<Skill> skills) {
@@ -39,7 +39,6 @@ public class Developer {
     }
 
     public Developer() {
-
     }
 
     public Long getId() {
@@ -66,7 +65,7 @@ public class Developer {
         this.lastName = lastName;
     }
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "developer", cascade = CascadeType.ALL)
+
     public List<Skill> getSkills() {
         return skills;
     }

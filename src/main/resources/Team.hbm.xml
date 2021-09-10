@@ -8,7 +8,6 @@
             This class contains developer's details.
         </meta>
         <id name="id" type="long" column="idTeam">
-            <generator class="native"/>
         </id>
         <property name="name" column="teamName" type="string"/>
         <property name="teamStatus" column="status" type="string"/>

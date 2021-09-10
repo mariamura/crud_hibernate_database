@@ -1,6 +1,7 @@
 package repository.Impl;
 
 import model.Developer;
+import model.Skill;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -29,12 +30,22 @@ public class DeveloperRepositoryImpl implements DeveloperRepository {
 
     @Override
     public Developer getById(Long id) {
-        return null;
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Developer developer = session.get(Developer.class, id);
+        transaction.commit();
+        session.close();
+        return developer;
     }
 
     @Override
     public void deleteById(Long id) {
-
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Developer developer = session.get(Developer.class, id);
+        session.delete(developer);
+        transaction.commit();
+        session.close();
     }
 
     @Override
@@ -52,10 +63,14 @@ public class DeveloperRepositoryImpl implements DeveloperRepository {
 
     @Override
     public Developer update(Developer developer) {
-        Session session = this.sessionFactory.openSession();
-        Transaction transaction = null;
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
 
-        transaction = session.beginTransaction();
+        Developer developer1 = session.get(Developer.class, developer.getId());
+        developer1.setFirstName(developer.getFirstName());
+        developer1.setLastName(developer.getLastName());
+        developer1.setSkills(developer.getSkills());
+
         session.update(developer);
         transaction.commit();
         session.close();

@@ -7,10 +7,6 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import repository.SkillRepository;
 
-import javax.management.Query;
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
 import java.util.List;
 
 public class SkillRepositoryImpl implements SkillRepository {
