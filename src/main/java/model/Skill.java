@@ -10,10 +10,12 @@ public class Skill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idSkill")
     private Long id;
 
     @Column(name = "skillName")
     private String name;
+
 
     public Skill(Long id, String name) {
         this.id = id;

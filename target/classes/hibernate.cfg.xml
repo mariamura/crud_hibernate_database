@@ -18,6 +18,7 @@
             jdbc:postgresql://localhost/crud_database_pg
             <!-- jdbc:mysql://localhost/crud_database?serverTimezone=Europe/Moscow -->
         </property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.connection.username">
             postgres
         </property>

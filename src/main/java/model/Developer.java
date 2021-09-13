@@ -11,6 +11,7 @@ public class Developer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idDeveloper")
     private Long id;
 
     @Column(name = "developerFirstName")
@@ -19,7 +20,7 @@ public class Developer {
     @Column(name = "developerLastName")
     private String lastName;
 
-    @OneToMany(mappedBy = "developer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Skill> skills;
 
     public Developer(Long id, String firstName, String lastName, List<Skill> skills) {
