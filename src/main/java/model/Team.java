@@ -1,18 +1,26 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
 
 
-@Entity
+@Entity(name = "Team")
 @Table(name = "team")
 public class Team {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idTeam")
     private Long id;
+
+    @Column(name = "teamName")
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Developer> developers;
+
+    @Column(name = "status")
     private TeamStatus teamStatus;
 
     public Team(Long id, String name, List<Developer> developers, TeamStatus teamStatus) {

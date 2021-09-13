@@ -74,6 +74,6 @@ public class DeveloperRepositoryImpl implements DeveloperRepository {
         session.update(developer);
         transaction.commit();
         session.close();
-        return developer;
+        return developer1;
     }
 }
