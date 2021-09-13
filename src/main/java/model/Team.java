@@ -20,7 +20,8 @@ public class Team {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Developer> developers;
 
-    @Column(name = "status")
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", length = 8)
     private TeamStatus teamStatus;
 
     public Team(Long id, String name, List<Developer> developers, TeamStatus teamStatus) {
